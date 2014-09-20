@@ -1,0 +1,117 @@
+% Этот документ когда-то был основан на шаблоне, разработанном в 2014 году
+% Данилом Фёдоровых (danil@fedorovykh.ru) 
+% для использования в курсе 
+% <<Документы и презентации в \LaTeX>>, записанном НИУ ВШЭ
+% для Coursera.org: http://coursera.org/course/latex.
+
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{setspace} % Интерлиньяж
+\onehalfspacing % Интерлиньяж 1.5
+\usepackage{indentfirst}
+\usepackage{wasysym}
+
+%%% Работа с русским языком
+\usepackage{cmap}					% поиск в PDF
+\usepackage{mathtext} 				% русские буквы в фомулах
+\usepackage[T2A]{fontenc}			% кодировка
+\usepackage[utf8]{inputenc}			% кодировка исходного текста
+\usepackage[english,russian]{babel}	% локализация и переносы
+
+%%% Страница
+\usepackage{extsizes} % Возможность сделать 14-й шрифт
+\usepackage{geometry} % Простой способ задавать поля
+	\geometry{top=10mm}
+	\geometry{bottom=15mm}
+	\geometry{left=20mm}
+	\geometry{right=15mm}
+
+%%% Работа с картинками
+\usepackage{graphicx}  % Для вставки рисунков
+\setlength\fboxsep{3pt} % Отступ рамки \fbox{} от рисунка
+\setlength\fboxrule{1pt} % Толщина линий рамки \fbox{}
+\usepackage{wrapfig} % Обтекание рисунков текстом
+
+%%% Работа с таблицами
+\usepackage{array,tabularx,tabulary,booktabs} % Дополнительная работа с таблицами
+\usepackage{longtable}  % Длинные таблицы
+\usepackage{multirow} % Слияние строк в таблице
+
+\usepackage{hyperref}
+\usepackage[usenames,dvipsnames,svgnames,table,rgb]{xcolor}
+
+\usepackage{csquotes} % Инструменты для ссылок
+
+
+\usepackage{multicol} % Несколько колонок
+
+\usepackage{hyperref}
+\usepackage[usenames,dvipsnames,svgnames,table,rgb]{xcolor}
+\hypersetup{				% Гиперссылки
+    unicode=true,           % русские буквы в раздела PDF
+    pdftitle={Заголовок},   % Заголовок
+    pdfauthor={Автор},      % Автор
+    pdfsubject={Тема},      % Тема
+    pdfcreator={Создатель}, % Создатель
+    pdfproducer={Производитель}, % Производитель
+    pdfkeywords={keyword1} {key2} {key3}, % Ключевые слова
+    colorlinks=true,       	% false: ссылки в рамках; true: цветные ссылки
+    linkcolor=red,          % внутренние ссылки
+    citecolor=black,        % на библиографию
+    filecolor=magenta,      % на файлы
+    urlcolor=black           % на URL
+}
+
+\usepackage{ulem} %strikethrough
+
+
+% Работа с кодом
+\usepackage{listings}
+\lstset{name=bash}
+
+\author{Полина Дроздова}
+\title{Основные сведения о дереве кофе}
+\date{\today}
+
+\begin{document} % конец преамбулы, начало документа
+
+\maketitle
+
+Кофе (род \textit{Coffea}) — это растение семейства Маревые (Rubiaceae), порядка Горечавкоцветные (Gentianales), клады Asterids. Для производства любимых нами всеми зёрен используют в основном два вида: \textit{C. arabica} и \textit{C. canephora} [\url{http://en.wikipedia.org/wiki/Coffea}]
+
+Недавно (статью в Science вышла 5 сентября 2014 года) был отсеквенирован геном \textit{C.~canephora}. 11 пар хромосом, 710 Mbp. [\url{http://www.sciencemag.org/content/345/6201/1181.full}]. 
+Авторы не пишут прямо, но сильно подозреваю, что этот вид предпочли потому, что он диплоид, а \textit{C. arabica} — тетраплоид. Чем больше геном, тем сложнее собирать.
+
+
+Ещё некоторые полезные ссылки:
+
+\url{https://genomevolution.org/wiki/index.php/File:Totalsequencedtree.png}
+
+\url{http://www.coffeegenome.org/}
+
+\url{http://coffee-genome.org/}
+
+Я утверждаю, что ближайший к кофе секвенированный геном — это либо помидор (\textit{Solanum lycopersicum}), либо картофель (\textit{S. tuberosum}), двух представителей сем. Паслёновые (Solanaceae), входящего в ту же кладу Asterids. Всего десяток лет назад кофе относили к тому же семейству Паслёновые. Проекты по секвенированию генома картофеля и томата живут здесь:
+
+\url{http://www.sgn.cornell.edu/}.
+
+Ещё можно попробовать поработать с генами классического модельного объекта генетики растений \textit{Arabidopsis thaliana}. Насколько я знаю, основной кладезь информации про этот геном здесь:
+
+\url{http://www.arabidopsis.org/}.
+
+Арабидопсис намного дальше от кофе, чем томат и картофель, зато изучен несравнимо лучше.
+
+Я вот нашла статью о том, что у кофе и помидора схожие наборы генов, а на арабидопсисные они как раз не очень похожи:
+[\url{http://link.springer.com/article/10.1007\%2Fs00122-005-0112-2}].
+
+
+А это самая главная страничка, с которой и стоит скачивать данные:
+
+[\textbf{\url{http://coffee-genome.org/download}}]
+Паша Добрынин: сказал, что мы можем работать с файлами .fasta с каждой хромосомой. Разбираться со скэффолдами отдельно веселее, но сложнее.
+
+Файл .gff3 в самом начале — это и есть цель нашей работы, поэтому заглядывать в него пока не стоит.
+
+В общем, пока что я предлагаю работать с генами \textit{Arabidopsis thaliana}, \textit{Solanum lycopersicum} и \textit{Solanum tuberosum} и посмотреть, что лучше получится.
+
+\end{document}
